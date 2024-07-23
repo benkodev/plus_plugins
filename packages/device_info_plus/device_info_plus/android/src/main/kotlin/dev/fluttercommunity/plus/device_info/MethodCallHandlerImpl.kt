@@ -69,12 +69,12 @@ internal class MethodCallHandlerImpl(
                 // Cannot call getSerial without the protected READ_PRIVILEGED_PHONE_STATE permission
                 // Gradle build will fail unless you set lintoptions to ignore this i.e. disable 'MissingPermission'
                 // https://developer.android.com/reference/android/os/Build#getSerial()
-                build["serialNumber"] = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
 //                build["serialNumber"] = try {
 //                    Build.getSerial()
 //                } catch (ex: SecurityException) {
 //                    Build.UNKNOWN
 //                }
+                build["serialNumber"] = Build.UNKNOWN
             } else {
                 build["serialNumber"] = Build.SERIAL
             }
